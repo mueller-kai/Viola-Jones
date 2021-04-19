@@ -11,9 +11,9 @@ face_cascade = cv.CascadeClassifier(r"C:\Users\kai\PycharmProjects\libs+packages
 
 #Use the Method detectMultiScale() of the face.cascade object to  looks at subregions of the image in multiple scales,
 #to detect faceses of various sizes
-
 detected_faces = face_cascade.detectMultiScale(grayscale_image)
 
+#draw boudning box
 for (column, row, width, height) in detected_faces:
     cv.rectangle(
         original_image,
