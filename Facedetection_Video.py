@@ -3,7 +3,7 @@ import cv2 as cv
 # Read image from your local file system
 #original_image = cv.imread(r'C:\Users\kai\PycharmProjects\ViolaJonesAlgorithm\pexels-victoria-borodinova-1648387.jpg')
 
-#Kamera Bild einlesen
+#Capture Camera
 cap = cv.VideoCapture(0)
 
 while cap.isOpened():
@@ -19,7 +19,8 @@ while cap.isOpened():
     #Use the Method detectMultiScale() of the face.cascade object to  look at subregions of the image in multiple scales,
     #to detect faces of various sizes
     detected_faces = face_cascade.detectMultiScale(grayscale_image)
-
+    
+    #draw bounding Box
     for (column, row, width, height) in detected_faces:
         cv.rectangle(
             frame,
@@ -28,7 +29,7 @@ while cap.isOpened():
             (0, 255, 0),
             2
         )
-
+    
     cv.imshow('Video', frame)
     if cv.waitKey(1) & 0xFF == ord('q'):
         break
